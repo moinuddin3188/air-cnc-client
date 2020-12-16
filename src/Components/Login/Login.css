@@ -1,0 +1,16 @@
+.login-container {
+    margin-top: 80px;
+}
+.login {
+    width: 300px;
+}
+.login-container .google-login {
+    box-shadow: 1px 1px 10px #e4e4e4;
+    border-radius: 10px;
+    padding: 8px 15px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+.login-container p {
+    color:gray;
+}

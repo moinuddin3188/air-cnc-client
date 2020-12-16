@@ -1,0 +1,30 @@
+.experience-card {
+    cursor: pointer;
+}
+.experience-card img {
+    border-radius: 3px;
+}
+.experience-card p {
+    margin: 0;
+}
+.sub-title {
+    padding: 4px 0 5px 0;
+    font-weight: 500;
+    font-size: 11px;
+    color: #010647;
+}
+.title {
+    color: #3f3f3f;
+    font-size: 15px;
+    font-weight: 600
+}
+.price {
+    color: #3f3f3f;
+    font-size: 12px;
+}
+@media(max-width: 400px) {
+    .experience-res {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}

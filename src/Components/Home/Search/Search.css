@@ -1,0 +1,78 @@
+.search-box {
+    margin-top: 50px;
+}
+.search-box p {
+    margin: 0;
+    color: lightgray;
+    font-size: 13px;
+}
+.search-box .location {
+    font-size: 13px;
+    font-weight: 500;
+    color: black;
+}
+.search-box input {
+    border: none;
+    font-size: 12px;
+    color: #afafaf;
+    outline: none;
+    width: 100%;
+}
+.search-box input::placeholder {
+    color: #d4d4d4
+}
+.search-box input[type="date"] {
+    color: black;
+    font-weight: 500;
+}
+.search-box .search-btn {
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 15px;
+    font-size: 13px;
+    background-image: linear-gradient(45deg, #2bde8c, #86f244);
+}
+.search-box .input-container {
+    padding: 20px;
+    box-shadow: 3px 3px 10px #eeeeee;
+    border-radius: 10px;
+}
+.guest {
+    padding: 20px;
+    box-shadow: 3px 3px 10px #eeeeee;
+    border-radius: 10px;
+}
+.guest p {
+    color: #000;
+    font-weight: 500;
+}
+.condition {
+    color: lightgray;
+    font-size: 11px;
+}
+.show-box .icon {
+    font-size: 11px;
+    color: #272727;
+    cursor: pointer;
+}
+.show-box {
+    border-top: 1px solid lightgray;
+}
+.show-box p {
+    margin-top: 23px !important;
+}
+.hide {
+    display: none;
+}
+.apply-btn {
+    background: transparent;
+    border: 1px solid #2bde8c;
+    border-radius: 5px;
+    padding: 4px 14px 2px 14px;
+    color: #2bde8c;
+    font-size: 11px;
+    font-weight: 600;
+}

@@ -1,0 +1,80 @@
+.details-container p {
+    margin: 0;
+}
+.details {
+    padding: 40px 215px;
+}
+.details-container .background {
+    background-position: center left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 450px;
+}
+.details p {
+    color: gray;
+}
+.details .title {
+    color: #646464;
+}
+.facilities {
+    padding: 30px 0px 15px 0px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.price-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px lightgray;
+}
+.price-box p {
+    color: black;
+}
+.price-box .price {
+    font-weight: 600;
+    font-size: 16px;
+}
+.price-box span {
+    font-size: 11px;
+}
+.price-box .date, .price-box .guests {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+.price-box input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.price-box input[type="date"] {
+    border: none;
+    max-width: 100%;
+    width: 90px;
+}
+.price-box input {
+    width: 100%;
+}
+.price-box select {
+    width: 100%;
+    border: none;
+}
+.price-box table {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 11px;
+}
+.price-box table td, th {
+    padding: 9px !important;
+}
+.price-box table tr {
+    border-bottom: 1px solid lightgray;
+}
+.reserve-btn {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 11px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}

@@ -1,0 +1,21 @@
+
+.navbar-brand h2 {
+    font-weight: 700 !important;
+    background: -webkit-linear-gradient(0deg, #2bde8c, #86f244);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-link {
+    font-size: 14px;
+    color: black !important;
+    font-weight: 500 !important;
+}
+.sign-up-btn {
+    margin-top: 3px;
+    font-size: 12px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    padding: 7px 20px;
+    outline: none !important;
+}

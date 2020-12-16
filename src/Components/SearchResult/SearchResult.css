@@ -1,0 +1,12 @@
+.filter button {
+    border: 1px solid gray;
+    font-size: 13px;
+    background: none;
+    padding: 3px 10px;
+    border-radius: 35px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.filter button:focus {
+    outline: none;
+}

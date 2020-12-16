@@ -1,0 +1,14 @@
+.meet-host h6 {
+    font-weight: 700;
+}
+.meet-host p {
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #616161;
+}
+.meet-host textarea {
+    border-color: lightgray;
+    color: gray;
+    margin-top: .5rem;
+    font-size: 12px;
+}

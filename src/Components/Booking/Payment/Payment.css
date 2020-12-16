@@ -1,0 +1,50 @@
+.payment {
+    border: 1px solid gray;
+    padding: 35px 35px 60px 35px;
+}
+.payment input {
+    width: 100%;
+    border: 1px solid #adadad ;
+    height: 50px;
+    padding: 0 20px;
+    color: gray;
+    background: none;
+}
+.payment input,
+.StripeElement {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid lightgray;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+}
+input:focus {
+    outline: none;
+}
+.payment input[type='radio'] {
+    width: auto !important;
+    height: auto !important;
+}
+.payment .payment-on {
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+}
+.payment label {
+    color: gray;
+    font-weight: normal;
+    font-size: 12px;
+}
+.payment p {
+    font-size: 12px;
+}
+.credit-card label {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.StripeElement {
+    margin-top: 3px;
+    height: 50px;
+}

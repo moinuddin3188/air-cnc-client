@@ -1,0 +1,24 @@
+.search-result-card {
+    padding: 20px 0;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+.search-result-card img {
+    border-radius: 10px;
+}
+.search-result-card .title {
+    font-size: 15px;
+    font-weight: 500;
+}
+.search-result-card span {
+    font-size: 13px;
+    color: gray;
+}
+.search-result-card .price {
+    color: black;
+    font-size: 13px;
+    line-height: 9px;;
+}
+.search-result-card p {
+    margin: 0;
+}

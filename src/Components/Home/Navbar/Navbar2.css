@@ -1,0 +1,30 @@
+.navbar-2 p {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.navbar-2 .search-option {
+    box-shadow: 1px 1px 5px #dadada;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 499.34px;
+}
+.navbar-2 .search-option input {
+    width: 100px;
+    height: auto;
+    border: none;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 500;
+    color: #000;
+    background: transparent;
+}
+.rs-picker-toggle-value {
+    color: #000 !important;
+    font-weight: 400 !important;
+}
+.add-guest .icon {
+    cursor: pointer;
+    font-size: 10px;
+}

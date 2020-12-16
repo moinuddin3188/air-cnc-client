@@ -1,0 +1,48 @@
+.review-house .day-count {
+    font-size: 16px;
+    font-weight: 600;
+    color: #383838;
+    margin-bottom: 1rem !important;
+}
+.review-house .check-in-check-out-date p {
+    font-size: 12px;
+    margin: 0;
+    color: #6b6b6b;
+}
+.review-house .check-in-check-out-date .date {
+    font-weight: 600;
+    padding: 3px 7px;
+    background-color: #e9e9e9;
+    border-radius: 3px;
+}
+.review-house .rules {
+    font-size: 14px;
+    color: #494949;
+}
+.review-house .rule-icon {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    padding: 7px;
+    font-size: 30px;
+}
+.review-house .smoking-icon {
+    font-size: 17px !important;
+    padding: 7px 6px !important;
+    width: 30px;
+    height: 30px;
+}
+.review-house .rules .read-more {
+    color: #1890c8;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.continue-btn {
+    margin-top: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px 20px;
+    color: #fff;
+    background-color: #2bde8c;
+}
