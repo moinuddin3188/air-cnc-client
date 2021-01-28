@@ -22,26 +22,24 @@ const Login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     const handleLogin = () => {
+        
         firebase.auth().signInWithPopup(provider)
-            .then((result) => {
-                const token = result.credential.accessToken;
+            .then(result => {
                 const user = result.user;
-                setUserInfo({...userInfo, email: user.email})
+                setUserInfo({ ...userInfo, email: user.email, photo: user.photoURL });
                 getToken();
                 history.replace(from);
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.email;
-                const credential = error.credential;
+            }).catch(error => {
+                
             });
     }
 
     const getToken = () => {
-        firebase.auth().currentUser.getIdToken(true)
-        .then((idToken) => {
-            sessionStorage.setItem('token', idToken);
-          }).catch((error) => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function(idToken) {
+            // Send token to your backend via HTTPS
+            sessionStorage.setItem('token', idToken)
+          }).catch(function(error) {
             // Handle error
           });
     }
@@ -62,7 +60,13 @@ const Login = () => {
                             <p>Login with google</p>
                         </div>
                     </div>
-                    <button className="bg w-100 mt-3 py-3 text-white" style={{ borderRadius: '10px' }}>Sign in</button>
+                    <button
+                        onClick={handleLogin}
+                        className="bg w-100 mt-3 py-3 text-white"
+                        style={{ borderRadius: '10px' }}
+                    >
+                        Sign in
+                    </button>
                 </div>
             </div>
         </div>

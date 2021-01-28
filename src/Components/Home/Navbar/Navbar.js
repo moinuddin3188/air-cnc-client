@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { UserContext } from '../../../App';
 
 
 const Navbar = () => {
+
+    const [userInfo, setUserInfo] = useContext(UserContext);
+
     return (
         <section className="container">
             <nav className="navbar navbar-expand-lg navbar-light px-0">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                     <h2>Aircnc</h2>
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span> <FontAwesomeIcon icon={faBars} /> </span>
                 </button>
@@ -27,12 +31,24 @@ const Navbar = () => {
                             <a className="nav-link" href="#services">Help</a>
                         </li>
                         <li className="nav-item ml-3 pt-2">
-                            <Link className="nav-link" to="/login">Login</Link>
+                            {
+                                userInfo.email ? (
+                                    <Link className="nav-link" to="">Logout</Link>
+                                ) : (
+                                        <Link className="nav-link" to="/login">Login</Link>
+                                    )
+                            }
                         </li>
                         <li className="nav-item ml-3">
-                            <Link className="nav-link" to="/login">
-                                <button className='sign-up-btn bg'>Sign up</button>
-                            </Link>
+                            {
+                                userInfo.email ? (
+                                    null
+                                ) : (
+                                        <Link className="nav-link" to="/login">
+                                            <button className='sign-up-btn bg'>Sign up</button>
+                                        </Link>
+                                    )
+                            }
                         </li>
                     </ul>
                 </div>

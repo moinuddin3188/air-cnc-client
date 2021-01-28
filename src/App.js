@@ -17,6 +17,7 @@ import AllExperiences from './Components/Pages/AllExperiences';
 import AllHomes from './Components/Pages/AllHomes';
 import PrivetRoute from './Components/PriverRoute/PrivetRoute';
 import NotFound from './Components/NotFound/NotFound';
+import jwt_decode from "jwt-decode";
 
 
 export const UserContext = createContext();
@@ -24,9 +25,14 @@ export const UserContext = createContext();
 
 function App() {
 
+  const token = sessionStorage.getItem('token');
+  const decoded = token && jwt_decode(token);
+
   const [userInfo, setUserInfo] = useState({
     apply: false, 
-    night: 1
+    night: 1,
+    email: decoded && decoded.email || '',
+    photo: decoded && decoded.picture || ''
   });
 
   return (

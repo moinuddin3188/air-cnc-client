@@ -71,54 +71,66 @@ const Navbar2 = () => {
                     <div className="ml-lg-auto d-flex">
                         <div>
                             <div className="search-option d-flex">
-                                
-                                    <div className='border-right text-center d-flex align-items-center'>
-                                        <input
-                                            onBlur={handleBlur}
-                                            name="location"
-                                            type="text"
-                                            placeholder='Dhaka'
-                                        />
-                                    </div>
-                                    <div className='border-right text-center'>
-                                        <DateRangePicker
-                                            onOk={dates}
-                                            showOneCalendar
-                                            placement="autoVertical"
-                                            cleanable={false}
-                                            placeholder="Check in - Check out"
-                                            appearance="subtle"
-                                        />
-                                    </div>
-                                    <div className='border-right text-center'>
-                                        <Whisper
-                                            trigger="click"
-                                            speaker={speaker}
-                                            placement="bottom"
-                                        >
-                                            <p>{userInfo.guest} Guest</p>
-                                        </Whisper>
-                                    </div>
-                                    <div onClick={handleSearch}>
-                                        <p> <FontAwesomeIcon color="#86f244" icon={faSearch} /> </p>
-                                    </div>
-                                
+
+                                <div className='border-right text-center d-flex align-items-center'>
+                                    <input
+                                        onBlur={handleBlur}
+                                        name="location"
+                                        type="text"
+                                        placeholder='Dhaka'
+                                    />
+                                </div>
+                                <div className='border-right text-center'>
+                                    <DateRangePicker
+                                        onOk={dates}
+                                        showOneCalendar
+                                        placement="autoVertical"
+                                        cleanable={false}
+                                        placeholder="Check in - Check out"
+                                        appearance="subtle"
+                                    />
+                                </div>
+                                <div className='border-right text-center'>
+                                    <Whisper
+                                        trigger="click"
+                                        speaker={speaker}
+                                        placement="bottom"
+                                    >
+                                        <p>{userInfo.guest} Guest</p>
+                                    </Whisper>
+                                </div>
+                                <div onClick={handleSearch}>
+                                    <p> <FontAwesomeIcon color="#86f244" icon={faSearch} /> </p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                     <ul className="navbar-nav ml-lg-auto">
                         <li className="nav-item pt-2">
-                            <Link className="nav-link" to="/login">Login</Link>
+                            {
+                                userInfo.email ? (
+                                    <Link className="nav-link" to="">Logout</Link>
+                                ) : (
+                                        <Link className="nav-link" to="/login">Login</Link>
+                                    )
+                            }
                         </li>
                         <li className="nav-item ml-lg-3">
-                            <Link className="nav-link" to="/login">
-                                <button className='sign-up-btn bg'>Sign up</button>
-                            </Link>
+                            {
+                                userInfo.email ? (
+                                    null
+                                ) : (
+                                        <Link className="nav-link" to="/login">
+                                            <button className='sign-up-btn bg'>Sign up</button>
+                                        </Link>
+                                    )
+                            }
                         </li>
                     </ul>
                 </div>
-            </nav>
-        </section>
+            </nav >
+        </section >
     );
 };
 
