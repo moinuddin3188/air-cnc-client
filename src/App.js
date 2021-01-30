@@ -18,6 +18,12 @@ import AllHomes from './Components/Pages/AllHomes';
 import PrivetRoute from './Components/PriverRoute/PrivetRoute';
 import NotFound from './Components/NotFound/NotFound';
 import jwt_decode from "jwt-decode";
+import Dashboard from './Components/Dashboard/Dashboard';
+import MyRent from './Components/Dashboard/MyRent/MyRent';
+import Review from './Components/Dashboard/Review/Review';
+import AddAdmin from './Components/Dashboard/AddAdmin/AddAdmin';
+import AddHome from './Components/Dashboard/AddHome/AddHome';
+import AddExperience from './Components/Dashboard/AddExperience/AddExperience';
 
 
 export const UserContext = createContext();
@@ -32,6 +38,7 @@ function App() {
     apply: false, 
     night: 1,
     email: decoded && decoded.email || '',
+    name: decoded && decoded.name || '',
     photo: decoded && decoded.picture || ''
   });
 
@@ -62,6 +69,24 @@ function App() {
           </Route>
           <Route path="/allHome">
             <AllHomes />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/myRent">
+            <MyRent />
+          </Route>
+          <Route path="/review">
+            <Review />
+          </Route>
+          <Route path="/addHome">
+            <AddHome />
+          </Route>
+          <Route path="/addExperience">
+            <AddExperience />
+          </Route>
+          <Route path="/addAdmin">
+            <AddAdmin />
           </Route>
           <Route path="/login">
             <Login />

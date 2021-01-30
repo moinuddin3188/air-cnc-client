@@ -1,0 +1,10 @@
+.dashboard textarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 12px;
+}
+.dashboard textarea:focus {
+    outline: none;
+}

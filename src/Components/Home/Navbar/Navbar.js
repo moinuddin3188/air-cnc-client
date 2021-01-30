@@ -30,10 +30,19 @@ const Navbar = () => {
                         <li className="nav-item ml-3 pt-2">
                             <a className="nav-link" href="#services">Help</a>
                         </li>
+                        {
+                            userInfo.email && (
+                                <li className="nav-item ml-3 pt-2">
+                                    <Link className="nav-link" to="/myRent">Dashboard</Link>
+                                </li>
+                            )
+                        }
                         <li className="nav-item ml-3 pt-2">
                             {
                                 userInfo.email ? (
-                                    <Link className="nav-link" to="">Logout</Link>
+                                    <Link className="nav-link pt-0 mt-0" to="">
+                                        <button className='sign-up-btn bg'>Logout</button>
+                                    </Link>
                                 ) : (
                                         <Link className="nav-link" to="/login">Login</Link>
                                     )

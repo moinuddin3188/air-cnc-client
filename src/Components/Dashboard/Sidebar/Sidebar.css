@@ -1,0 +1,23 @@
+.sidebar {
+    padding-top: 15px;
+}
+.sidebar h3 {
+    margin-bottom: 40px;
+    background: -webkit-linear-gradient(0deg, #2bde8c, #86f244);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar a {
+    color: #000;
+    transition: all 0.2s;
+}
+.sidebar a:hover {
+    color: #2bde8c;
+}
+.sidebar .dashboard-icon {
+    margin-right: 15px;
+}
+.sidebar p {
+    margin-bottom: 20px;
+    font-weight: 500;
+}

@@ -1,0 +1,8 @@
+.nav-link:hover {
+    color: #2bde8c !important;
+}
+.navbar h3 {
+    background: -webkit-linear-gradient(0deg, #2bde8c, #86f244);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
