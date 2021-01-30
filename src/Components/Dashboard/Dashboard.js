@@ -5,7 +5,7 @@ import Sidebar from './Sidebar/Sidebar';
 
 const Dashboard = () => {
     return (
-        <div className='dashboard-main'>
+        <div className='dashboard-main maintain-width'>
             <DashboardNav />
             <div className='row dashboard-container m-0'>
                 <Sidebar />
@@ -24,7 +24,7 @@ const Dashboard = () => {
                                     <td>1</td>
                                     <td>Moin uddin</td>
                                     <td>moinuddin3188@gmail.com</td>
-                                    <td>Something</td>
+                                    <td>Light bright and Airy safe appartment</td>
                                 </tr>
                             </table>
                         </div>

@@ -5,7 +5,7 @@ import './MyRent.css';
 
 const MyRent = () => {
     return (
-        <div className='dashboard-main'>
+        <div className='dashboard-main maintain-width'>
             <DashboardNav />
             <div className="row dashboard-container m-0">
                 <Sidebar />
