@@ -1,0 +1,16 @@
+.footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid lightgray;
+    margin-top: 60px;
+}
+.footer h6 {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.footer p {
+    margin-top: 9px;
+}
+.footer small {
+    text-align: center;
+    font-size: 11px;
+}

@@ -7,6 +7,7 @@ import Navbar2 from '../Home/Navbar/Navbar2';
 import { Facebook, BulletList, Code } from 'react-content-loader'
 import { UserContext } from '../../App';
 import Guest from '../Home/Search/Guest';
+import Footer from '../Footer/Footer';
 
 
 const Details = () => {
@@ -195,6 +196,7 @@ const Details = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };

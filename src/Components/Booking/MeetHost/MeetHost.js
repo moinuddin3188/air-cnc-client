@@ -4,6 +4,7 @@ import Navbar2 from '../../Home/Navbar/Navbar2';
 import Pricing from '../Pricing/Pricing';
 import Steps from '../Steps/Steps';
 import { Link, useParams } from 'react-router-dom';
+import Footer from '../../Footer/Footer';
 
 
 const MeetHost = () => {
@@ -56,6 +57,7 @@ const MeetHost = () => {
                     </div>
                 </section>
             </section>
+            <Footer />
         </section>
     );
 };

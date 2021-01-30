@@ -6,6 +6,7 @@ import SearchResultCard from './SearchCard/SearchResultCard';
 import './SearchResult.css';
 import { Popover, Whisper, Button } from 'rsuite';
 import { Toggle } from 'rsuite';
+import Footer from '../Footer/Footer';
 
 
 const SearchResult = () => {
@@ -159,6 +160,7 @@ const SearchResult = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };

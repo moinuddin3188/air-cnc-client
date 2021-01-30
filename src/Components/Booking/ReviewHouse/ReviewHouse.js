@@ -8,6 +8,7 @@ import Pricing from '../Pricing/Pricing';
 import { Link, useParams } from 'react-router-dom';
 import { BulletList } from 'react-content-loader'
 import { UserContext } from '../../../App';
+import Footer from '../../Footer/Footer';
 
 
 const ReviewHouse = () => {
@@ -135,6 +136,7 @@ const ReviewHouse = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </section>
     );
 };

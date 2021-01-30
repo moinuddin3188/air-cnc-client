@@ -1,13 +1,15 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import Experience from './Experiences/Experience';
 import './Home.css';
 import Homes from './Homes/Homes';
 import Navbar from './Navbar/Navbar';
 import Search from './Search/Search';
+import WhyUs from './WhyUs/WhyUs';
 
 const Home = () => {
     return (
-        <div className='pb-4'>
+        <main>
             <section className="navbar-container">
                 <Navbar />
             </section>
@@ -20,7 +22,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-        </div>
+            <WhyUs />
+            <Footer />
+        </main>
     );
 };
 

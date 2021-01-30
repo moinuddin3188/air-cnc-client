@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 import ExperienceCard from '../Home/Experiences/ExperienceCard/ExperienceCard';
 import Navbar2 from '../Home/Navbar/Navbar2';
 import ExperiencesLoader from '../Preloader/ExperiencesLoader';
@@ -35,6 +36,7 @@ const AllExperiences = () => {
                     </div>
                 }
             </div>
+            <Footer />
         </>
     );
 };
