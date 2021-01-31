@@ -35,11 +35,12 @@ function App() {
   const decoded = token && jwt_decode(token);
 
   const [userInfo, setUserInfo] = useState({
-    apply: false, 
+    apply: false,
     night: 1,
     email: decoded && decoded.email || '',
     name: decoded && decoded.name || '',
-    photo: decoded && decoded.picture || ''
+    photo: decoded && decoded.picture || '',
+    admin: false
   });
 
   return (
@@ -70,24 +71,33 @@ function App() {
           <Route path="/allHome">
             <AllHomes />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/myRent">
-            <MyRent />
-          </Route>
-          <Route path="/review">
-            <Review />
-          </Route>
-          <Route path="/addHome">
-            <AddHome />
-          </Route>
-          <Route path="/addExperience">
-            <AddExperience />
-          </Route>
-          <Route path="/addAdmin">
-            <AddAdmin />
-          </Route>
+          {
+            userInfo.admin ? (
+              <>
+                <PrivetRoute path="/dashboard">
+                  <Dashboard />
+                </PrivetRoute>
+                <PrivetRoute path="/addHome">
+                  <AddHome />
+                </PrivetRoute>
+                <PrivetRoute path="/addExperience">
+                  <AddExperience />
+                </PrivetRoute>
+                <PrivetRoute path="/addAdmin">
+                  <AddAdmin />
+                </PrivetRoute>
+              </>
+            ) : (
+                <>
+                  <PrivetRoute path="/myRent">
+                    <MyRent />
+                  </PrivetRoute>
+                  <PrivetRoute path="/review">
+                    <Review />
+                  </PrivetRoute>
+                </>
+              )
+          }
           <Route path="/login">
             <Login />
           </Route>

@@ -8,16 +8,19 @@ import { UserContext } from '../../../App';
 const Sidebar = () => {
 
     const [userInfo, setUserInfo] = useContext(UserContext)
-    const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
         fetch('https://secret-ridge-54673.herokuapp.com/admins')
             .then(res => res.json())
             .then(data => {
                 const admin = data.filter(admin => admin.email === userInfo.email);
-                setAdmin(admin)
+                if (admin.length > 0) {
+                    setUserInfo({...userInfo, admin: true})
+                } else {
+                    setUserInfo({...userInfo, admin: false})
+                }
             })
-    })
+    }, [])
 
     const history = useHistory()
     const goHome = () => {
@@ -28,27 +31,35 @@ const Sidebar = () => {
         <div className='col-2 sidebar pr-0 d-none d-lg-block'>
             <section className='d-flex flex-column pr-0'>
                 <div className='col pl-0 pr-0'>
-                    <h3 onClick={goHome} style={{cursor: 'pointer'}} >Aircnc</h3>
+                    <h3 onClick={goHome} style={{ cursor: 'pointer' }} >Aircnc</h3>
                     <NavLink to='/' class="text-decoration-none">
                         <p className=''>
                             <FontAwesomeIcon className='dashboard-icon' icon={faHome} />
                             Home
                         </p>
                     </NavLink>
-                    <NavLink to='/myRent' class="text-decoration-none">
-                        <p className=''>
-                            <FontAwesomeIcon className='dashboard-icon' icon={faHotel} />
-                            My Rent
-                        </p>
-                    </NavLink>
-                    <NavLink to='/review' class="text-decoration-none">
-                        <p className=''>
-                            <FontAwesomeIcon className='dashboard-icon' icon={faUser} />
-                            Review
-                        </p>
-                    </NavLink>
                     {
-                        admin.length > 0 ? (
+                        userInfo.admin ? (
+                            null
+                        ) : (
+                                <>
+                                    <NavLink to='/myRent' class="text-decoration-none">
+                                        <p className=''>
+                                            <FontAwesomeIcon className='dashboard-icon' icon={faHotel} />
+                                        My Rent
+                                        </p>
+                                    </NavLink>
+                                    <NavLink to='/review' class="text-decoration-none">
+                                        <p className=''>
+                                            <FontAwesomeIcon className='dashboard-icon' icon={faUser} />
+                                            Review
+                                        </p>
+                                    </NavLink>
+                                </>
+                            )
+                    }
+                    {
+                        userInfo.admin ? (
                             <>
                                 <NavLink to='/dashboard' class="text-decoration-none active">
                                     <p className=''>

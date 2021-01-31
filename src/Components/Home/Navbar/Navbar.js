@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,7 +33,7 @@ const Navbar = () => {
                         {
                             userInfo.email && (
                                 <li className="nav-item ml-3 pt-2">
-                                    <Link className="nav-link" to="/myRent">Dashboard</Link>
+                                    <Link className="nav-link" to={userInfo.admin ? "/dashboard" : "/myRent"}>Dashboard</Link>
                                 </li>
                             )
                         }

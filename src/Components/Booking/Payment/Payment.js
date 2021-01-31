@@ -3,7 +3,7 @@ import './Payment.css';
 import Navbar2 from '../../Home/Navbar/Navbar2';
 import Pricing from '../Pricing/Pricing';
 import Steps from '../Steps/Steps';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from './PaymentForm';
@@ -18,9 +18,10 @@ const Payment = () => {
 
     const step = 3;
     const { id4 } = useParams();
+    const history = useHistory();
     const [userInfo, setUserInfo] = useContext(UserContext)
     const [home, setHome] = useState({})
-console.log(userInfo)
+
     useEffect(() => {
         fetch(`https://secret-ridge-54673.herokuapp.com/details/${id4}`)
             .then(res => res.json())
@@ -46,6 +47,8 @@ console.log(userInfo)
             .then(success => {
 
             })
+
+        history.push('/myRent')
 
         e.preventDefault();
     }

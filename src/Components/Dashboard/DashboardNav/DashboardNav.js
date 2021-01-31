@@ -6,16 +6,6 @@ import './DashboardNav.css';
 const DashboardNav = () => {
 
     const [userInfo, setUserInfo] = useContext(UserContext)
-    const [admin, setAdmin] = useState([]);
-
-    useEffect(() => {
-        fetch('https://secret-ridge-54673.herokuapp.com/admins')
-            .then(res => res.json())
-            .then(data => {
-                const admin = data.filter(admin => admin.email === userInfo.email);
-                setAdmin(admin)
-            })
-    })
 
     return (
         <div className='d-lg-none d-block border-bottom'>
@@ -31,14 +21,22 @@ const DashboardNav = () => {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/myRent">My Rent</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/review">Review</Link>
-                        </li>
                         {
-                            admin.length > 0 ? (
+                            userInfo.admin ? (
+                                null
+                            ) : (
+                                    <>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/myRent">My Rent</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/review">Review</Link>
+                                        </li>
+                                    </>
+                                )
+                        }
+                        {
+                            userInfo.admin ? (
                                 <>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/dashboard">Bookings</Link>
