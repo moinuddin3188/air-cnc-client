@@ -39,7 +39,7 @@ const Login = () => {
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
         .then(function(idToken) {
             // Send token to your backend via HTTPS
-            Cookies.set('token', idToken)
+            Cookies.set('token', idToken, { expires: 7 })
           }).catch(function(error) {
             // Handle error
           });
