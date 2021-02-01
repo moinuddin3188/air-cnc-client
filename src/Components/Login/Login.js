@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Login.css';
 import google from '../../images/google.png';
 import firebase from "firebase/app";
@@ -6,6 +6,7 @@ import "firebase/auth";
 import { firebaseConfig } from '../../Firebase/Firebase';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 firebase.initializeApp(firebaseConfig);
@@ -38,7 +39,7 @@ const Login = () => {
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
         .then(function(idToken) {
             // Send token to your backend via HTTPS
-            sessionStorage.setItem('token', idToken)
+            Cookies.set('token', idToken)
           }).catch(function(error) {
             // Handle error
           });

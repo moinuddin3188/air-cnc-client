@@ -11,7 +11,7 @@ import ReviewHouse from './Components/Booking/ReviewHouse/ReviewHouse';
 import MeetHost from './Components/Booking/MeetHost/MeetHost';
 import Payment from './Components/Booking/Payment/Payment';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Login from './Components/Login/Login';
 import AllExperiences from './Components/Pages/AllExperiences';
 import AllHomes from './Components/Pages/AllHomes';
@@ -24,6 +24,7 @@ import Review from './Components/Dashboard/Review/Review';
 import AddAdmin from './Components/Dashboard/AddAdmin/AddAdmin';
 import AddHome from './Components/Dashboard/AddHome/AddHome';
 import AddExperience from './Components/Dashboard/AddExperience/AddExperience';
+import Cookies from 'js-cookie';
 
 
 export const UserContext = createContext();
@@ -31,7 +32,7 @@ export const UserContext = createContext();
 
 function App() {
 
-  const token = sessionStorage.getItem('token');
+  const token = Cookies.get('token');
   const decoded = token && jwt_decode(token);
 
   const [userInfo, setUserInfo] = useState({
@@ -42,6 +43,19 @@ function App() {
     photo: decoded && decoded.picture || '',
     admin: false
   });
+
+  useEffect(() => {
+    fetch('https://secret-ridge-54673.herokuapp.com/admins')
+        .then(res => res.json())
+        .then(data => {
+            const admin = data.filter(admin => admin.email === userInfo.email);
+            if (admin.length > 0) {
+                setUserInfo({...userInfo, admin: true})
+            } else {
+                setUserInfo({...userInfo, admin: false})
+            }
+        })
+}, [userInfo.email])
 
   return (
     <UserContext.Provider value={[userInfo, setUserInfo]}>
@@ -72,31 +86,46 @@ function App() {
             <AllHomes />
           </Route>
           {
-            userInfo.admin ? (
-              <>
-                <PrivetRoute path="/dashboard">
-                  <Dashboard />
-                </PrivetRoute>
-                <PrivetRoute path="/addHome">
-                  <AddHome />
-                </PrivetRoute>
-                <PrivetRoute path="/addExperience">
-                  <AddExperience />
-                </PrivetRoute>
-                <PrivetRoute path="/addAdmin">
-                  <AddAdmin />
-                </PrivetRoute>
-              </>
-            ) : (
-                <>
-                  <PrivetRoute path="/myRent">
-                    <MyRent />
-                  </PrivetRoute>
-                  <PrivetRoute path="/review">
-                    <Review />
-                  </PrivetRoute>
-                </>
-              )
+            userInfo.admin === true ?
+              <PrivetRoute path="/dashboard">
+                <Dashboard />
+              </PrivetRoute>
+              : null
+          }
+          {
+            userInfo.admin === true ?
+              <PrivetRoute path="/addHome">
+                <AddHome />
+              </PrivetRoute>
+              : null
+          }
+          {
+            userInfo.admin === true ?
+              <PrivetRoute path="/addExperience">
+                <AddExperience />
+              </PrivetRoute>
+              : null
+          }
+          {
+            userInfo.admin === true ?
+              <PrivetRoute path="/addAdmin">
+                <AddAdmin />
+              </PrivetRoute>
+              : null
+          }
+          {
+            userInfo.admin === true ?
+              null :
+              <PrivetRoute path="/myRent">
+                <MyRent />
+              </PrivetRoute>
+          }
+          {
+            userInfo.admin === true ?
+              null :
+              <PrivetRoute path="/review">
+                <Review />
+              </PrivetRoute>
           }
           <Route path="/login">
             <Login />

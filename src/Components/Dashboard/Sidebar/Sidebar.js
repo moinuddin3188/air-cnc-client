@@ -4,23 +4,25 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHotel, faHome, faUser, faFileAlt, faCog, faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../../App';
+import Cookies from 'js-cookie';
+
 
 const Sidebar = () => {
 
     const [userInfo, setUserInfo] = useContext(UserContext)
 
-    useEffect(() => {
-        fetch('https://secret-ridge-54673.herokuapp.com/admins')
-            .then(res => res.json())
-            .then(data => {
-                const admin = data.filter(admin => admin.email === userInfo.email);
-                if (admin.length > 0) {
-                    setUserInfo({...userInfo, admin: true})
-                } else {
-                    setUserInfo({...userInfo, admin: false})
-                }
-            })
-    }, [])
+    const logout = () => {
+        setUserInfo({
+            apply: false,
+            night: 1,
+            email: '',
+            name: '',
+            photo: '',
+            admin: false
+        })
+
+        Cookies.remove('token')
+    }
 
     const history = useHistory()
     const goHome = () => {
@@ -90,7 +92,7 @@ const Sidebar = () => {
                     }
                 </div>
                 <div className='d-flex align-items-end'>
-                    <p className=''>
+                    <p className='' onClick={logout}>
                         <FontAwesomeIcon className='dashboard-icon' icon={faSignOutAlt} />
                         Sign out
                     </p>

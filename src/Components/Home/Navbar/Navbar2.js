@@ -8,7 +8,7 @@ import { Popover, Whisper } from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
 import Guest from '../Search/Guest';
 import { UserContext } from '../../../App';
-
+import Cookies from 'js-cookie';
 
 
 const Navbar2 = () => {
@@ -50,6 +50,19 @@ const Navbar2 = () => {
         setUserInfo({ ...userInfo, night: night.length })
 
         e.preventDefault();
+    }
+
+    const logout = () => {
+        setUserInfo({
+            apply: false,
+            night: 1,
+            email: '',
+            name: '',
+            photo: '',
+            admin: false
+        })
+
+        Cookies.remove('token')
     }
 
     const speaker = (
@@ -110,7 +123,7 @@ const Navbar2 = () => {
                         <li className="nav-item pt-2">
                             {
                                 userInfo.email ? (
-                                    <Link className="nav-link" to="">Logout</Link>
+                                    <Link onClick={logout} className="nav-link" to="">Logout</Link>
                                 ) : (
                                         <Link className="nav-link" to="/login">Login</Link>
                                     )

@@ -2,10 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './DashboardNav.css';
+import Cookies from 'js-cookie';
 
 const DashboardNav = () => {
 
-    const [userInfo, setUserInfo] = useContext(UserContext)
+    const [userInfo, setUserInfo] = useContext(UserContext);
+
+    const logout = () => {
+        setUserInfo({
+            apply: false,
+            night: 1,
+            email: '',
+            name: '',
+            photo: '',
+            admin: false
+        })
+
+        Cookies.remove('token')
+    }
 
     return (
         <div className='d-lg-none d-block border-bottom'>
@@ -53,6 +67,9 @@ const DashboardNav = () => {
                                 </>
                             ) : null
                         }
+                        <li className="nav-item active">
+                            <Link onClick={logout} className="nav-link" to="">Logout</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

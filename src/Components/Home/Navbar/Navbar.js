@@ -4,11 +4,25 @@ import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../../App';
+import Cookies from 'js-cookie';
 
 
 const Navbar = () => {
 
     const [userInfo, setUserInfo] = useContext(UserContext);
+console.log(userInfo)
+    const logout = () => {
+        setUserInfo({
+            apply: false,
+            night: 1,
+            email: '',
+            name: '',
+            photo: '',
+            admin: false
+        })
+
+        Cookies.remove('token')
+    }
 
     return (
         <section className="container">
@@ -33,7 +47,11 @@ const Navbar = () => {
                         {
                             userInfo.email && (
                                 <li className="nav-item ml-3 pt-2">
-                                    <Link className="nav-link" to={userInfo.admin ? "/dashboard" : "/myRent"}>Dashboard</Link>
+                                    {
+                                        userInfo.admin 
+                                        ? <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                                        : <Link className="nav-link" to="/myRent">Dashboard</Link>
+                                    }
                                 </li>
                             )
                         }
@@ -41,7 +59,7 @@ const Navbar = () => {
                             {
                                 userInfo.email ? (
                                     <Link className="nav-link pt-0 mt-0" to="">
-                                        <button className='sign-up-btn bg'>Logout</button>
+                                        <button onClick={logout} className='sign-up-btn bg'>Logout</button>
                                     </Link>
                                 ) : (
                                         <Link className="nav-link" to="/login">Login</Link>
